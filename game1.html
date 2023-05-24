@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Poltawski Nowy', serif;
+            background-color:blanchedalmond ;
+            
+        }
+        header,footer{
+            background-color: gray;
+            color: blanchedalmond;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 0;
+            min-width: 100%;
+        }
+        .emoji, .result-section, .move, .winLog,.reset{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .result-section , .move, .winLog {
+            color: grey;
+            font-weight: 900;
+        }
+        .btn {
+            background: none;
+            border: none;
+            padding-left: 40px;
+            padding-right: 40px;
+            
+        }
+        .reset-btn {
+            background-color: grey;
+            color: blanchedalmond;
+            border: 1px solid;
+            height: 50px;
+            border-radius: 25px;
+            padding-left: 15px;
+            padding-right: 15px;
+            cursor: pointer;
+        }
+        .reset-btn:hover {
+            background-color: blanchedalmond;
+            color: grey;
+        }
+        @media (max-width: 600px) {
+            .for-mobile{
+                height: 65px;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            .for-mobile{
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ROCK-PAPER-SCISSORS</h1>
+    </header>
+    
+    <div class="emoji">
+        <button class="btn" onclick="playGame('rock')"><img  class="for-mobile" src="images/fist.png" alt=""></button>
+        <button class="btn" onclick="playGame('paper')"><img class="for-mobile" src="images/raised_hand_with_fingers_splayed.png" alt=""></button>
+        <button class="btn" onclick="playGame('scissors')"><img class="for-mobile" src="images/v.png" alt=""></button>
+    </div>
+    <div class="result-section">
+        <h2 class="result"></h2>
+    </div>
+    <div class="move">
+        <p class="moves"></p>
+    </div>
+    <div class="winLog">
+        <p class="winLog"></p>
+    </div>
+    <div class="reset">
+        <button class="reset-btn" onclick="clearfn()">Clear Win Log</button>
+    </div>
+  <script src="game1.js"></script>
+</body>
+</html>
