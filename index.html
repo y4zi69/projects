@@ -18,9 +18,9 @@
    
     <div class="emoji">
 
-        <button class="btn" onclick="playGame('rock')"><img  class="for-mobile" src="images/fist.png" alt=""></button>
-        <button class="btn" onclick="playGame('paper')"><img class="for-mobile" src="images/raised_hand_with_fingers_splayed.png" alt=""></button>
-        <button class="btn" onclick="playGame('scissors')"><img class="for-mobile" src="images/v.png" alt=""></button>
+        <button class="btn" onclick="playGame('rock')"><img  class="for-mobile" src="images/rock.png" alt=""></button>
+        <button class="btn" onclick="playGame('paper')"><img class="for-mobile" src="images/paper.png" alt=""></button>
+        <button class="btn" onclick="playGame('scissors')"><img class="for-mobile" src="images/scissors.png" alt=""></button>
 
     </div>
     <div class="result-section">
@@ -103,7 +103,8 @@
             
             display()
             document.querySelector('.result').innerHTML = result
-            document.querySelector('.moves').innerHTML = `You picked ${playerPick} and computer picked ${compVal}`
+            document.querySelector('.moves').innerHTML = 
+            `You : <img  class="for-mobile" src="images/${playerPick}.png" alt=""> Computer : <img  class="for-mobile" src="images/${compVal}.png" alt=""> `
 
         }
         
