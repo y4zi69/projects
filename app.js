@@ -5,60 +5,81 @@ winLog = JSON.parse(localStorage.getItem('score')) || {
 }
 display()
 
+let autoPlaying = false;
+let interVal;
+
+function autoplay(){
+    if(!autoPlaying){
+        interVal = setInterval(function(){
+            const playerPick = computerValue();
+            playGame(playerPick);
+    
+        },1000)
+        autoPlaying = true;
+
+    }else {
+        clearInterval(interVal);
+        autoPlaying = false;
+         
+    }
+    document.querySelector('.auto-btn').innerHTML = 'Stop'
+    
+}
+
 function playGame(playerPick){
-const compVal = computerValue()
+    const compVal = computerValue()
 
-let result = ''
+    let result = ''
 
-if(playerPick === 'rock'){
-    if(compVal === 'rock'){
-    result = 'Tie'
-    }
-    else if(compVal === 'paper'){
-        result = 'You lose'
-    }
-    else if (compVal === 'scissors'){
-        result = 'You win'
-    }
-
-
-}else if(playerPick === 'paper'){
-    if(compVal === 'rock'){
-        result = 'You win'      
-    }
-    else if(compVal === 'paper'){
+    if(playerPick === 'rock'){
+        if(compVal === 'rock'){
         result = 'Tie'
+        }
+        else if(compVal === 'paper'){
+            result = 'You lose'
+        }
+        else if (compVal === 'scissors'){
+            result = 'You win'
+        }
+
+
+    }else if(playerPick === 'paper'){
+        if(compVal === 'rock'){
+            result = 'You win'      
+        }
+        else if(compVal === 'paper'){
+            result = 'Tie'
+        }
+        else if (compVal === 'scissors'){
+            result = 'You lose'
+        }
+
+
+    }else if(playerPick === 'scissors'){
+        if(compVal === 'rock'){
+            result = 'You lose'
+
+        }else if(compVal === 'paper'){
+            result = 'You win'
+
+        }else if(compVal === 'scissors'){
+            result = 'Tie'
+        }
     }
-    else if (compVal === 'scissors'){
-        result = 'You lose'
+    if (result === 'You win'){
+        winLog.Wins += 1
+    }else if(result === 'You lose'){
+        winLog.Losses += 1
+    }else if(result === 'Tie'){
+        winLog.Ties +=1
     }
+    localStorage.setItem('score',JSON.stringify(winLog))
 
 
-}else if(playerPick === 'scissors'){
-    if(compVal === 'rock'){
-        result = 'You lose'
-
-    }else if(compVal === 'paper'){
-        result = 'You win'
-
-    }else if(compVal === 'scissors'){
-        result = 'Tie'
-    }
-}
-if (result === 'You win'){
-    winLog.Wins += 1
-}else if(result === 'You lose'){
-    winLog.Losses += 1
-}else if(result === 'Tie'){
-    winLog.Ties +=1
-}
-localStorage.setItem('score',JSON.stringify(winLog))
-
-
-display()
-document.querySelector('.result').innerHTML = result
-document.querySelector('.moves').innerHTML = 
-`You : <img  class="for-mobile" src="images/${playerPick}.png" alt=""> Computer : <img  class="for-mobile" src="images/${compVal}.png" alt=""> `
+    display()
+    document.querySelector('.result').innerHTML = result
+    document.querySelector('.moves').innerHTML = 
+    `You : <img  class="for-mobile" src="images/${playerPick}.png" alt=""> Computer : <img  class="for-mobile" src="images/${compVal}.png" alt=""> `
 
 }
 
