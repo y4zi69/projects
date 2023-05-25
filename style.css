@@ -39,10 +39,12 @@ header,footer{
     padding-left: 15px;
     padding-right: 15px;
     cursor: pointer;
+    transition: all 1s ;
 }
 .reset-btn:hover {
     background-color: blanchedalmond;
     color: grey;
+    transform: scaleX(0 .9);
 }
 footer {
     position:absolute;
