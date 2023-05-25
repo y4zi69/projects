@@ -22,7 +22,12 @@ function autoplay(){
         autoPlaying = false;
          
     }
-    document.querySelector('.auto-btn').innerHTML = 'Stop'
+    const val = document.querySelector('.auto-btn')
+            if(val.innerHTML === 'Auto Play'){
+                val.innerHTML = 'Stop'
+            }else{
+                val.innerHTML = 'Auto Play'
+            }
     
 }
 
